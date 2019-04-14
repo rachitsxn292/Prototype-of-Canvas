@@ -69,7 +69,7 @@ class Createcourse extends Component{
     CreateCourseData(event)
     {
         
-        axios.post('http://localhost:3001/createcourse', {
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/createcourse', {
             courseid:this.state.courseid,
             coursename:this.state.coursename,
             coursedept:this.state.coursedept,

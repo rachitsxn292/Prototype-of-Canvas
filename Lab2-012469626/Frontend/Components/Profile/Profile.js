@@ -98,7 +98,7 @@ class Profile extends Component {
     UpdateProfileData(event)
     { 
         const {email,sid,phoneno,address,city,country,company,school,hometown,gender,languages,aboutme} = this.state;
-        axios.post('http://localhost:3001/updateprofile', {email,sid,phoneno,address,city,country,company,school,hometown,gender,languages,aboutme})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/updateprofile', {email,sid,phoneno,address,city,country,company,school,hometown,gender,languages,aboutme})
         .then(response=>{
             const data = {
                 email: this.props.email,
@@ -125,7 +125,7 @@ class Profile extends Component {
     };
     // componentDidMount(){
     //     const {email} = this.state;
-    //     axios.get('http://localhost:3001/getProfile', {params: {email}})
+    //     axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/getProfile', {params: {email}})
     //     .then(res => {
     //         console.log(res.data);
     //         res.data.map(item => {
@@ -174,7 +174,7 @@ class Profile extends Component {
         const data = new FormData()
         data.set('email', email);
         data.append('file', this.state.selectedFile, this.state.selectedFile.filename)
-        axios.post('http://localhost:3001/uploadPicture',data,{email})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/uploadPicture',data,{email})
         .then(res=>{
             const {imglink} = this.state;
             this.setState({

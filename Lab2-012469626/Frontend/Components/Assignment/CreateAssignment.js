@@ -44,7 +44,7 @@ class CreateAssignment extends Component {
         AssignCreateData(event)
         {
             
-            axios.post('http://localhost:3001/facultyCreateAssignment', {
+            axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/facultyCreateAssignment', {
                 assignmentHeading: this.state.assignmentHeading,
                 assignmentText: this.state.assignmentText,
                 email:this.state.email,

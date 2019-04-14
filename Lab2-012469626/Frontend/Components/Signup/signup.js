@@ -48,7 +48,7 @@ class Signup extends Component{
         this.setState({
             signup: event.target.value
         })
-    axios.post('http://localhost:3001/signup', {
+    axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/signup', {
             Name: this.state.nameS,
             Email: this.state.emailS,
             Password:this.state.pwdS,

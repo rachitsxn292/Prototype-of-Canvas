@@ -27,7 +27,7 @@ class ViewCollegues extends Component {
             this.paginate(-1);
         }
         const {limit, courseid} = this.state;
-        axios.get('http://localhost:3001/viewPeople', {params: {courseid, limit, t}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/viewPeople', {params: {courseid, limit, t}})
         .then(res=>{
             this.setState({
                 students: res.data
@@ -40,7 +40,7 @@ class ViewCollegues extends Component {
         this.paginate(1);
         let t = this.state.page + 1;
         const {limit, courseid} = this.state;
-        axios.get('http://localhost:3001/viewPeople', {params: {courseid, limit, t}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/viewPeople', {params: {courseid, limit, t}})
         .then(res=>{
             this.setState({
                 students: res.data
@@ -60,7 +60,7 @@ class ViewCollegues extends Component {
             this.paginate(-1);
         }
         const {limit, courseid} = this.state;
-        axios.get('http://localhost:3001/viewPeople', {params: {courseid, limit, t}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/viewPeople', {params: {courseid, limit, t}})
         .then(res=>{
             this.setState({
                 students: res.data
@@ -68,7 +68,7 @@ class ViewCollegues extends Component {
         })
         // const {courseid} = this.state;
         // console.log(courseid);
-        // axios.get('http://localhost:3001/viewPeople', {params: {courseid}})
+        // axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/viewPeople', {params: {courseid}})
         // .then(res => {
         //     console.log(res.data);
         //     this.setState({

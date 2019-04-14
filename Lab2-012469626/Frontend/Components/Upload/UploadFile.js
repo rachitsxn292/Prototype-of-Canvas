@@ -27,7 +27,7 @@ class UploadFile extends Component {
         data.set('email', email);
         data.set('courseid', courseid);
         data.append('file', this.state.selectedFile, this.state.selectedFile.filename)
-        axios.post('http://localhost:3001/upload',data,{email,courseid})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/upload',data,{email,courseid})
         .then(res=>{
             alert("File Uploaded");
         })
@@ -36,7 +36,7 @@ class UploadFile extends Component {
     componentDidMount()
     {
         const {courseid} = this.state;
-        axios.get('http://localhost:3001/uploadView', {params: {courseid}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/uploadView', {params: {courseid}})
         .then(res => {
             console.log(res.data);
             this.setState({

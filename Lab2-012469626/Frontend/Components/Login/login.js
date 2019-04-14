@@ -24,7 +24,7 @@ class Loginmain extends Component{
     SigninData(event)
     {
         
-        axios.post('http://localhost:3001/login', {
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/login', {
             id: this.state.id,
             pwd: this.state.pwd,
             login: event.target.value

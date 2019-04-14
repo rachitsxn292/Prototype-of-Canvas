@@ -65,7 +65,7 @@ class CreateQuiz extends Component {
     }
     QuizData(){
         const {courseid,ques,op1,op2,op3,op4,result} = this.state;
-        axios.post('http://localhost:3001/facultyCreateQuiz', {courseid,ques,op1,op2,op3,op4,result})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/facultyCreateQuiz', {courseid,ques,op1,op2,op3,op4,result})
         .then(response=>{
                 alert("Question Created");
 

@@ -20,7 +20,7 @@ class ViewSubmission extends Component {
     componentDidMount()
     {
         const {courseid} = this.state;
-        axios.get('http://localhost:3001/ViewAssignmentSubmission', {params: {courseid}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/ViewAssignmentSubmission', {params: {courseid}})
         .then(res => {
             console.log(res.data);
             this.setState({
@@ -32,7 +32,7 @@ class ViewSubmission extends Component {
     SubmitMarks()
     {
         const {courseid} = this.state;
-    axios.post('http://localhost:3001/assignmentMarks', {
+    axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/assignmentMarks', {
             marks: this.state.marks,
             courseid
         })

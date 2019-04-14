@@ -21,7 +21,7 @@ class SendMessage extends Component {
     componentDidMount(){
         const {courseid} = this.state;
         console.log(courseid);
-        axios.get('http://localhost:3001/sendMessage123', {params: {courseid}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/sendMessage123', {params: {courseid}})
         .then(res => {
             console.log(res.data);
             this.setState({
@@ -51,7 +51,7 @@ class SendMessage extends Component {
                         const role=student.role;
                         const {email}=this.state;
                         const senderemail=student.username;
-                        axios.post('http://localhost:3001/sendMessage',{email,role,senderemail,message:this.state.message})
+                        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/sendMessage',{email,role,senderemail,message:this.state.message})
                         .then(res=>{
                             if(res)
                             {

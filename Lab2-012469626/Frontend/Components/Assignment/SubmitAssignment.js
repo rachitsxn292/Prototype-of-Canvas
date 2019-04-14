@@ -24,7 +24,7 @@ class SubmitAssignment extends Component {
     componentDidMount()
     {
         const {courseid,email} = this.state;
-        axios.get('http://localhost:3001/assignmentView', {params: {courseid,email},headers: {'Authorization': localStorage.getItem('authToken')}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/assignmentView', {params: {courseid,email},headers: {'Authorization': localStorage.getItem('authToken')}})
         .then(res => {
             console.log(res.data);
             this.setState({
@@ -38,7 +38,7 @@ class SubmitAssignment extends Component {
         data.set('email', email);
         data.set('courseid', courseid);
         data.append('file', this.state.selectedFile, this.state.selectedFile.filename)
-        axios.post('http://localhost:3001/uploadAssignment',data,{email,courseid})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/uploadAssignment',data,{email,courseid})
         .then(res=>{
             alert("Assignment Uploaded");
         })

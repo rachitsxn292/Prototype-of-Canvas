@@ -26,7 +26,7 @@ export function signUser(){
 
 export function fetchDetails(email){
     return function(dispatch){
-        return Axios.get('http://localhost:3001/getProfile',{params:{email}})
+        return Axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/getProfile',{params:{email}})
             .then((res)=>{
                 console.log(res.data);
                 dispatch(updaUser(res.data));

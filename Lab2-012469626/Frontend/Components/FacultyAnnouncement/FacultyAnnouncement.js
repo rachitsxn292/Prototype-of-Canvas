@@ -32,7 +32,7 @@ class FacultyAnnouncement extends Component{
 
     AnnouncementData(){
         const {courseid,announcementHeading,announcementText} = this.state;
-        axios.post('http://localhost:3001/announcement', {headers: {'Authorization': localStorage.getItem('authToken')}}, {courseid,announcementHeading,announcementText})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/announcement', {headers: {'Authorization': localStorage.getItem('authToken')}}, {courseid,announcementHeading,announcementText})
         .then(response=>{
                 console.log("Inside Faculty Announcements");
 

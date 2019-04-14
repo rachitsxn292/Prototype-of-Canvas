@@ -19,7 +19,7 @@ class ViewStudents extends Component {
     componentDidMount(){
         const {courseid} = this.state;
         console.log(courseid);
-        axios.get('http://localhost:3001/viewStudents', {params: {courseid}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/viewStudents', {params: {courseid}})
         .then(res => {
             console.log(res.data);
             this.setState({
@@ -43,7 +43,7 @@ class ViewStudents extends Component {
                     <td><button  key={student.courseid} name="DropStudent" id="DropStudent" onClick={()=>{
                         const email=student.email;
                         const {courseid}=this.state;
-                        axios.post('http://localhost:3001/dropStudent',{email,courseid})
+                        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/dropStudent',{email,courseid})
                         .then(res=>{
                             if(res)
                             {

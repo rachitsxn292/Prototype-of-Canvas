@@ -19,7 +19,7 @@ class ViewLecture extends Component {
     componentDidMount()
     {
         const {courseid} = this.state;
-        axios.get('http://localhost:3001/ViewLecture', {params: {courseid}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/ViewLecture', {params: {courseid}})
         .then(res => {
             console.log(res.data);
             this.setState({

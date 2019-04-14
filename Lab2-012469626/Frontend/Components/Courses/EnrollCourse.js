@@ -33,7 +33,7 @@ class EnrollCourse extends Component {
 //         })
 //         const {email,courseid,coursename,enroll}=this.state;
 //         console.log(email);
-//         axios.post('http://localhost:3001/enrolled',{email,courseid,coursename,enroll})
+//         axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/enrolled',{email,courseid,coursename,enroll})
 //         .then(response=>{
 //             if(response.data===true)
 //             {
@@ -47,7 +47,7 @@ class EnrollCourse extends Component {
     // DropData(event){
     //     const {email,courseid}=this.state;
     //     console.log("Drop Course",email);
-    //     axios.post('http://localhost:3001/dropCourse',{email,courseid})
+    //     axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/dropCourse',{email,courseid})
     //     .then(response=>{
     //         if(response.data===true)
     //         {
@@ -65,7 +65,7 @@ class EnrollCourse extends Component {
 
     CodeMatch(){
         const {email,EnterCode,courseid} = this.state;
-        axios.post('http://localhost:3001/codematch',{email,EnterCode,courseid})
+        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/codematch',{email,EnterCode,courseid})
         .then(response=>{
             if(response.data===true)
             {
@@ -80,7 +80,7 @@ class EnrollCourse extends Component {
         })
     }
     searchValue(){
-        axios.get('http://localhost:3001/search', {search:this.state.search})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/search', {search:this.state.search})
         .then(response=>{
             console.log("Seacrh Bar");
 
@@ -98,7 +98,7 @@ class EnrollCourse extends Component {
             this.paginate(-1);
         }
         const {limit, courseid} = this.state;
-        axios.get('http://localhost:3001/enrollCourse', {params: {courseid, limit, t}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/enrollCourse', {params: {courseid, limit, t}})
         .then(res=>{
             this.setState({
                 courses: res.data
@@ -111,7 +111,7 @@ class EnrollCourse extends Component {
         this.paginate(1);
         let t = this.state.page + 1;
         const {limit, courseid} = this.state;
-        axios.get('http://localhost:3001/enrollCourse', {params: {courseid, limit, t}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/enrollCourse', {params: {courseid, limit, t}})
         .then(res=>{
             this.setState({
                 courses: res.data
@@ -135,14 +135,14 @@ class EnrollCourse extends Component {
         const {limit, courseid} = this.state;
         cookie.save('courseid',this.state.courseid);
         cookie.save('coursename',this.state.coursename);
-        axios.get('http://localhost:3001/enrollCourse',{params: { limit, t}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/enrollCourse',{params: { limit, t}})
                 .then((response) => {
                     console.log(response.data);
                 this.setState({
                     courses : this.state.courses.concat(response.data) 
                 });
             });
-        axios.get('http://localhost:3001/displayCodes')
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/displayCodes')
                 .then((response) => {
                     console.log(response.data);
                 this.setState({
@@ -182,7 +182,7 @@ class EnrollCourse extends Component {
                         const coursename=course.coursename;
                         var enroll = "E";
                         console.log('Inside Front End',email,courseid,coursename);
-                        axios.post('http://localhost:3001/enrolled',{email,courseid,coursename,enroll})
+                        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/enrolled',{email,courseid,coursename,enroll})
                         .then(response=>{
                              if(response.data===true)
                              {
@@ -196,7 +196,7 @@ class EnrollCourse extends Component {
                         const coursename=course.coursename;
                         var waitlist = "W";
                         console.log(email);
-                        axios.post('http://localhost:3001/waitlist',{email,courseid,coursename,waitlist})
+                        axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/waitlist',{email,courseid,coursename,waitlist})
                         .then(response=>{
                              if(response.data===true)
                              {
@@ -206,7 +206,7 @@ class EnrollCourse extends Component {
                             })}} >Waitlist</button></td>
                     <td><button key={course.courseid} value="D" name="dropCourse" id="dropCourse" onClick={()=>{
                             const {email,courseid}=this.state;
-                            axios.post('http://localhost:3001/dropCourse',{email,courseid})
+                            axios.post('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/dropCourse',{email,courseid})
                             .then(response=>{
                                 if(response.data===true)
                                 {

@@ -20,7 +20,7 @@ class Quiz extends Component {
     componentDidMount(){
         const {courseid} = this.state;
         console.log("Inside Quiz Front ",courseid);
-        axios.get('http://localhost:3001/quiz', {params: {courseid}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/quiz', {params: {courseid}})
         .then(res => {
             console.log(res.data);
             this.setState({

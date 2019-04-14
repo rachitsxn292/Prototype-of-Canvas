@@ -19,7 +19,7 @@ class ViewGrades extends Component {
 
     componentDidMount(){
         const {email} = this.state;
-        axios.get('http://localhost:3001/viewMarks', {params: {email}})
+        axios.get('http://ec2-18-188-117-8.us-east-2.compute.amazonaws.com:3001/viewMarks', {params: {email}})
         .then(res => {
             console.log(res.data);
             this.setState({
